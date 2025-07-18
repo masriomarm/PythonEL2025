@@ -1,7 +1,7 @@
 """Tuple Problems - Testing student capability with tuple operations."""
 
 
-def tuple_operations(tuple1, tuple2):
+def tuple_operations(tuple1: tuple, tuple2: tuple):
     """Perform basic operations on two tuples.
 
     Args:
@@ -11,7 +11,10 @@ def tuple_operations(tuple1, tuple2):
     Returns:
         dict: Dictionary with concatenation, repetition,
     """
-    # Write your solution here
+    ret = {}
+    ret["concatenation"] = tuple1 + tuple2
+    ret["repetition"] = tuple1 + tuple1
+    return ret
 
 
 def find_tuple_stats(numbers_tuple):
@@ -23,7 +26,12 @@ def find_tuple_stats(numbers_tuple):
     Returns:
         tuple: (sum, max, min, length)
     """
-    # Write your solution here
+    return (
+        sum(numbers_tuple),  # this will fail if len is 0
+        max(numbers_tuple),
+        min(numbers_tuple),
+        len(numbers_tuple),
+    )
 
 
 def count_elements_in_tuple(data_tuple, element):
@@ -36,7 +44,7 @@ def count_elements_in_tuple(data_tuple, element):
     Returns:
         int: Number of occurrences
     """
-    # Write your solution here
+    return data_tuple.count(element)
 
 
 def tuple_indexing_slicing(data_tuple):
@@ -48,7 +56,12 @@ def tuple_indexing_slicing(data_tuple):
     Returns:
         dict: Dictionary with various slicing results
     """
-    # Write your solution here
+    first, *mid, last = data_tuple
+    return {
+        "first_element": first,
+        "mid_elements": mid,
+        "last_element": last,
+    }
 
 
 if __name__ == "__main__":
@@ -61,7 +74,9 @@ if __name__ == "__main__":
     assert result["concatenation"] == (1, 2, 3, 3, 4, 5), (
         f"Expected concatenation (1, 2, 3, 3, 4, 5), got {result['concatenation']}"
     )
-    assert result["repetition"] == (1, 2, 3, 1, 2, 3), "Expected repetition (1, 2, 3, 1, 2, 3)"
+    assert result["repetition"] == (1, 2, 3, 1, 2, 3), (
+        "Expected repetition (1, 2, 3, 1, 2, 3)"
+    )
     assert set(result.keys()) == expected_keys, f"Expected keys {expected_keys}"
 
     print("Testing find_tuple_stats...")
@@ -76,7 +91,11 @@ if __name__ == "__main__":
     result = tuple_indexing_slicing((0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
     assert "first_element" in result, "Should contain first_element"
     assert "last_element" in result, "Should contain last_element"
-    assert result["first_element"] == 0, f"Expected first_element 0, got {result['first_element']}"
-    assert result["last_element"] == 9, f"Expected last_element 9, got {result['last_element']}"
+    assert result["first_element"] == 0, (
+        f"Expected first_element 0, got {result['first_element']}"
+    )
+    assert result["last_element"] == 9, (
+        f"Expected last_element 9, got {result['last_element']}"
+    )
 
     print("All tests passed!")
