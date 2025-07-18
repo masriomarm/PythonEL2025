@@ -67,6 +67,12 @@ def nested_dictionary_access(nested_dict, keys_path):
         any: Value at the specified path, or None if path doesn't exist
     """
     # Write your solution here
+    val = nested_dict.get(keys_path[0], None)
+    for key in keys_path[1:]:
+        val = val.get(key, None)
+        if val is None:
+            break
+    return val
 
 
 if __name__ == "__main__":
