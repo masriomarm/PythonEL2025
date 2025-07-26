@@ -5,6 +5,12 @@ bool isVowel(char letter) {
   // write your solution here...
   // Hint: Check if the letter is 'a', 'e', 'i', 'o', 'u' (both uppercase and
   // lowercase)
+  char vowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+  for (auto ch : vowels) {
+    if (ch == letter) {
+      return true;
+    }
+  }
   return false;
 }
 
