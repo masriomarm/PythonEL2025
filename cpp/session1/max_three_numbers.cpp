@@ -1,10 +1,8 @@
 #include <cassert>
 #include <iostream>
+#include <sys/param.h>
 
-int getMaximum(int a, int b, int c) {
-  // write your solution here...
-  return 0;
-}
+int getMaximum(int a, int b, int c) { return MAX(a, (MAX(b, c))); }
 
 int main() {
   std::cout << "==============================================\n";
