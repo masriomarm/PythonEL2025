@@ -1,11 +1,30 @@
 #include <cassert>
+#include <cmath>
 #include <iostream>
 
 int sumDigits(int number) {
   // write your solution here...
   // Hint: Use modulo (%) to get last digit and division (/) to remove last
   // digit Hint: Handle negative numbers appropriately
-  return 0;
+  if (!number) {
+    return 0;
+  }
+
+  if (number < 0) {
+    number = abs(number);
+  }
+
+  int sum = 0;
+  int len = std::log10(number);
+
+  while (number)
+  {
+    int digit = number / (std::pow(10, len));
+    sum += digit;
+    number -= (digit * (std::pow(10,len)));
+    len--;
+  }
+  return sum;
 }
 
 int main() {
