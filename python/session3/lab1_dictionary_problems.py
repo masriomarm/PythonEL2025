@@ -1,7 +1,7 @@
 """Dictionary Problems - Testing student capability with dictionary operations."""
 
 
-def dictionary_operations(dict1, dict2):
+def dictionary_operations(dict1: dict, dict2: dict):
     """Perform basic operations on two dictionaries.
 
     Args:
@@ -12,6 +12,15 @@ def dictionary_operations(dict1, dict2):
         dict: Dictionary with merged, common_keys, and unique_keys
     """
     # Write your solution here
+    merged = dict1.copy()
+    merged.update(dict2)
+    common = set(dict1).intersection(set(dict2))
+    unique = (set(dict1.keys()).union(set(dict2.keys()))).difference(common)
+    return {
+        "merged": merged,
+        "common_keys": common,
+        "unique_keys": unique,
+    }
 
 
 def count_word_frequency(text):
@@ -24,6 +33,10 @@ def count_word_frequency(text):
         dict: Dictionary with word frequencies
     """
     # Write your solution here
+    ret = {}
+    for word in text.split():
+        ret[word] = ret.get(word, 0) + 1
+    return ret
 
 
 def dictionary_filtering(students_grades):
@@ -36,6 +49,11 @@ def dictionary_filtering(students_grades):
         dict: Dictionary with students who have grades >= 70
     """
     # Write your solution here
+    ret = {}
+    for key, val in students_grades.items():
+        if val >= 70:
+            ret[key] = val
+    return ret
 
 
 def nested_dictionary_access(nested_dict, keys_path):
@@ -55,7 +73,11 @@ if __name__ == "__main__":
     # Test cases
     print("Testing dictionary_operations...")
     result = dictionary_operations({"a": 1, "b": 2}, {"b": 3, "c": 4})
-    expected = {"merged": {"a": 1, "b": 3, "c": 4}, "common_keys": {"b"}, "unique_keys": {"a", "c"}}
+    expected = {
+        "merged": {"a": 1, "b": 3, "c": 4},
+        "common_keys": {"b"},
+        "unique_keys": {"a", "c"},
+    }
     assert result == expected, f"Expected {expected}, got {result}"
     assert result["merged"] == {"a": 1, "b": 3, "c": 4}, "Merged dictionary incorrect"
     assert result["common_keys"] == {"b"}, "Common keys incorrect"
