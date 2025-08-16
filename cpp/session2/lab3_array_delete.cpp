@@ -1,5 +1,6 @@
 #include <cassert>
 #include <iostream>
+#include <algorithm>
 
 int deleteFromArray(int arr[], int size, int target) {
   // write your solution here...
@@ -7,26 +8,14 @@ int deleteFromArray(int arr[], int size, int target) {
   // Hint: Return the new size of the array after deletion
   // Hint: If target not found, return original size
 
-  /// find target index - first encounter
-  int target_index = -1;
-  for (int indx = 0; indx < size; indx++)
+  auto end = arr + size;
+  auto it = std::find(arr, end, target);
+  if (it != end)
   {
-    if (arr[indx] == target) {
-      target_index = indx;
-      break;
-    }
+    std::copy(it + 1, end, it);
+    size -= 1;
   }
-
-  if (target_index == -1){
-    return size;
-  }
-
-  /// shift after target index.
-  int write_index = target_index;
-  for (int indx = target_index + 1; indx < size; indx++) {
-    arr[write_index++] = arr[indx];
-  }
-  return write_index;
+  return size;
 }
 
 int main() {

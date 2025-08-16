@@ -1,20 +1,13 @@
+#include <algorithm>
 #include <cassert>
-#include <cstdint>
 #include <iostream>
 
 int findMaxInArray(int arr[], int size) {
   // write your solution here...
   // Hint: Iterate through the array and keep track of the maximum value
   // Hint: Handle edge cases like empty arrays
-  int ret = INT32_MIN;
-  for (auto indx = 0; indx < size ; indx++)
-  {
-    if (arr[indx] > ret)
-    {
-      ret = arr[indx];
-    }
-  }
-  return ret;
+  auto max = std::max_element(arr, arr+size);
+  return *max;
 }
 
 int main() {
