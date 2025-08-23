@@ -11,17 +11,14 @@ private:
 public:
   // Default constructor
   // write your solution here...
-  MyString() : length(0) {
-    this->string_data = new char[length + 1];
-    std::memset(this->string_data, 0, 1);
-  }
+  MyString() : MyString(nullptr) {}
 
   MyString(const char *str) : length(str == nullptr ? 0 : strlen(str)) {
     this->string_data = new char[length + 1];
     if (str != nullptr)
       std::memcpy(this->string_data, str, length + 1);
     else
-      std::memset(this->string_data, 0, 1);
+      this->string_data[0] = '\0';
   }
 
   // Destructor
