@@ -1,8 +1,7 @@
-#include <algorithm>
 #include <cassert>
+#include <cstddef>
 #include <cstring>
 #include <iostream>
-#include <memory>
 
 class MyString {
 private:
@@ -12,30 +11,46 @@ private:
 public:
   // Default constructor
   // write your solution here...
-  MyString() {}
+  MyString() : length(0) {
+    this->string_data = new char[length + 1];
+    std::memset(this->string_data, 0, 1);
+  }
 
-  MyString(const char *str) {}
+  MyString(const char *str) : length(str == nullptr ? 0 : strlen(str)) {
+    this->string_data = new char[length + 1];
+    if (str != nullptr)
+      std::memcpy(this->string_data, str, length + 1);
+    else
+      std::memset(this->string_data, 0, 1);
+  }
 
   // Destructor
-  ~MyString() = default;
+  ~MyString() {
+    delete[] string_data;
+    string_data = nullptr;
+  }
 
   // Getters
-  size_t getLength() const { return 0; }
-  const char *getString() const { return ""; }
+  size_t getLength() const { return this->length; }
+  const char *getString() const { return this->string_data; }
 
   // Indexing operator (const version)
   // uncomment and write your solution
-  //   const char &operator[](size_t index) const { }
+  const char &operator[](size_t index) const {
+    return this->string_data[index];
+  }
 
   // Indexing operator (non-const version)
   // uncomment and write your solution
-  //   char &operator[](size_t index) {  }
+  char &operator[](size_t index) { return this->string_data[index]; }
 
   // Equality operator
-  bool operator==(const MyString &other) const { return false; }
+  bool operator==(const MyString &other) const {
+    return (std::strcmp(this->string_data, other.string_data) == 0);
+  }
 
   // Inequality operator
-  bool operator!=(const MyString &other) const { return false; }
+  bool operator!=(const MyString &other) const { return !(*this == other); }
 };
 
 int main() {
