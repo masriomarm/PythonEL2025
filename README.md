@@ -41,12 +41,14 @@ cpp/
 │   ├── lab3_array_delete.cpp       # Array element deletion
 │   ├── lab4_array_merge.cpp        # Array merging operations
 │   └── lab5_even_odd.cpp           # Even/odd number classification
-└── session3/
-    ├── lab1_all_even.cpp           # Check all elements are even
-    ├── lab2_any_even.cpp           # Check any element is even
-    └── lab3_string_class.cpp       # String class implementation
-└── session4/
-    ├── lab1_function_backtrace     # Backtrace
+├── session3/
+│   ├── lab1_all_even.cpp           # Check all elements are even
+│   ├── lab2_any_even.cpp           # Check any element is even
+│   └── lab3_string_class.cpp       # String class implementation
+├── session4/
+│   └── lab1_function_backtrace.cpp # Function call backtrace system
+└── session5/
+    └── lab1_logging_system.cpp     # Multi-level logging with buffering
 ```
 
 ## 🚀 Getting Started

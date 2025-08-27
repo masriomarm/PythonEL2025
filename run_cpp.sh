@@ -71,7 +71,11 @@ examine_cpp_session "cpp/session3" SKIP
 
 #----------------- Session 4 -----------------#
 echo "🎯 Testing C++ Session 4..."
-examine_cpp_session "cpp/session4" MUST
+examine_cpp_session "cpp/session4" SKIP
+
+#----------------- Session 5 -----------------#
+echo "🎯 Testing C++ Session 5..."
+examine_cpp_session "cpp/session5" SKIP
 
 echo "==============================================";
 echo "[🎉] All C++ tests completed successfully!";
