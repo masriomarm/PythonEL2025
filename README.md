@@ -1,7 +1,6 @@
 # El2025Tasks - Embedded Linux Diploma Laboratory Exercises
 
-[![Python](https://github.com/Embedded-Linux-Diploma2025/El2025Tasks/actions/workflows/python.yml/badge.svg)](https://github.com/Embedded-Linux-Diploma2025/El2025Tasks/actions/workflows/python.yml)
-[![C++](https://github.com/Embedded-Linux-Diploma2025/El2025Tasks/actions/workflows/cpp.yml/badge.svg)](https://github.com/Embedded-Linux-Diploma2025/El2025Tasks/actions/workflows/cpp.yml)
+
 
 This repository contains programming laboratory exercises for the Embedded Linux Diploma EL2025 program. Students will work on both Python and C++ programming challenges organized by sessions.
 
@@ -168,60 +167,6 @@ This repository uses GitHub Actions for automated testing:
    - Review error logs
    - Fix issues and push again
 
-## 📚 Lab Guidelines
-
-### 🐍 Python Labs
-
-- **Code Style**: Follow PEP 8 guidelines
-- **Testing**: Each lab includes assert statements for validation
-- **Documentation**: Use docstrings for function descriptions
-- **Dependencies**: Limited to standard library (exceptions noted)
-
-**Example Python Lab Structure:**
-```python
-def your_function(parameters):
-    """Brief description of what the function does.
-
-    Args:
-        parameters: Description of parameters
-
-    Returns:
-        return_type: Description of return value
-    """
-    # Your implementation here
-    return result
-
-# Test cases (DO NOT MODIFY)
-if __name__ == "__main__":
-    assert your_function(test_input) == expected_output
-```
-
-### ⚡ C++ Labs
-
-- **Standard**: C++17
-- **Compiler Flags**: `-Wall -Wextra -std=c++17`
-- **Testing**: Uses assert statements for validation
-- **Memory Management**: Practice proper resource management
-
-**Example C++ Lab Structure:**
-```cpp
-#include <cassert>
-#include <iostream>
-
-int yourFunction(int parameters) {
-    // Your implementation here
-    return result;
-}
-
-int main() {
-    // Test cases (DO NOT MODIFY)
-    assert(yourFunction(test_input) == expected_output);
-
-    std::cout << "All tests passed!" << std::endl;
-    return 0;
-}
-```
-
 ## 🎯 Best Practices
 
 ### 💡 HINTS and Tips
@@ -316,19 +261,3 @@ std::cout << "Output: " << final_result << std::endl;
    ```bash
    chmod +x run_python.sh run_cpp.sh
    ```
-
-## 📞 Support
-
-- **Issues**: Create GitHub issues for bugs or clarifications
-- **Discussions**: Use GitHub Discussions for questions
-- **Code Review**: Request reviews through pull requests
-
-## 📄 License
-
-This repository is for educational purposes as part of the Embedded Linux Diploma EL2025 program.
-
----
-
-**Happy Coding! 🚀**
-
-*Remember: The goal is learning, not just passing tests. Understand the concepts behind each lab.*
