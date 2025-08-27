@@ -45,6 +45,8 @@ cpp/
     ├── lab1_all_even.cpp           # Check all elements are even
     ├── lab2_any_even.cpp           # Check any element is even
     └── lab3_string_class.cpp       # String class implementation
+└── session4/
+    ├── lab1_function_backtrace     # Backtrace
 ```
 
 ## 🚀 Getting Started
